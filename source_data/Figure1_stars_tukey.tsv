@@ -1,0 +1,10 @@
+panel	measure	comparison	test	tukey_p	star
+A	glomeruli_per_kidney	FVB vs B6	Tukey HSD (all four strains)	0.27693395432913204	ns
+A	glomeruli_per_kidney	FVB vs DBA	Tukey HSD (all four strains)	0.006180072109454038	**
+A	glomeruli_per_kidney	FVB vs BALB	Tukey HSD (all four strains)	1.7081780434580196e-11	***
+B	glom_per_g_kw	FVB vs B6	Tukey HSD (all four strains)	0.00014001315908718226	***
+B	glom_per_g_kw	FVB vs DBA	Tukey HSD (all four strains)	0.0062425174694403784	**
+B	glom_per_g_kw	FVB vs BALB	Tukey HSD (all four strains)	0.0004427528649026957	***
+C	kw_bw_pct	FVB vs B6	Tukey HSD (all four strains)	1.0193180335349439e-06	***
+C	kw_bw_pct	FVB vs DBA	Tukey HSD (all four strains)	0.6189185701902459	ns
+C	kw_bw_pct	FVB vs BALB	Tukey HSD (all four strains)	0.9966083097046821	ns

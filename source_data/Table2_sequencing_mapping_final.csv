@@ -1,0 +1,13 @@
+Sample,Strain,Stage,Sex,Input read pairs (M),"Uniquely mapped, reference (%)","Uniquely mapped, cond. A (%)","_source, cond. A","Uniquely mapped, cond. B (%)","_source, cond. B","Assigned fragments, reference (%)","Assigned fragments, cond. A (%)","Assigned fragments, cond. B (%)"
+B6135-1,B6,,M,30.61,95.0,94.63,earlier run (identical parameters),94.5,earlier run (identical parameters),81.82,80.81,80.55
+B6135-2,B6,,M,28.73,95.18,94.81,earlier run (identical parameters),94.66,earlier run (identical parameters),81.29,80.27,80.0
+B6135-3,B6,,M,30.09,94.43,94.06,earlier run (identical parameters),93.92,earlier run (identical parameters),80.84,79.81,79.54
+B6P1-1,B6,,M,31.9,94.04,93.78,earlier run (identical parameters),93.61,earlier run (identical parameters),73.52,72.79,72.51
+B6P1-2,B6,,M,28.65,93.68,93.33,earlier run (identical parameters),93.21,earlier run (identical parameters),74.79,73.82,73.53
+B6P1-3,B6,,M,26.56,93.28,92.9,earlier run (identical parameters),92.77,earlier run (identical parameters),74.15,73.11,72.81
+FVB135-1,FVB,,M,26.24,94.64,94.91,earlier run (identical parameters),95.05,earlier run (identical parameters),80.04,80.41,80.56
+FVB135-2,FVB,,M,30.5,94.43,94.72,earlier run (identical parameters),94.86,earlier run (identical parameters),79.55,79.99,80.14
+FVB135-3,FVB,,M,33.24,93.73,94.03,earlier run (identical parameters),94.17,earlier run (identical parameters),79.0,79.48,79.63
+FVBP1-1,FVB,,M,28.02,93.37,93.64,earlier run (identical parameters),93.84,earlier run (identical parameters),73.42,73.71,73.84
+FVBP1-2,FVB,,M,24.08,92.77,93.06,earlier run (identical parameters),93.22,earlier run (identical parameters),75.35,75.75,75.89
+FVBP1-3,FVB,,M,29.29,88.28,88.52,earlier run (identical parameters),88.66,earlier run (identical parameters),77.7,78.03,78.17

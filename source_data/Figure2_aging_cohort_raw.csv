@@ -1,0 +1,121 @@
+measure,strain,age_label,age_weeks,value,unit
+kidney_weight,B6,8wk,8,0.109,g
+kidney_weight,B6,8wk,8,0.122,g
+kidney_weight,B6,8wk,8,0.128,g
+kidney_weight,B6,8wk,8,0.121,g
+kidney_weight,B6,8wk,8,0.115,g
+glomeruli_per_kidney,B6,8wk,8,6750,glomeruli/kidney
+glomeruli_per_kidney,B6,8wk,8,6600,glomeruli/kidney
+glomeruli_per_kidney,B6,8wk,8,7320,glomeruli/kidney
+glomeruli_per_kidney,B6,8wk,8,6260,glomeruli/kidney
+glomeruli_per_kidney,B6,8wk,8,7160,glomeruli/kidney
+kidney_weight,FVB,8wk,8,0.212,g
+kidney_weight,FVB,8wk,8,0.231,g
+kidney_weight,FVB,8wk,8,0.181,g
+kidney_weight,FVB,8wk,8,0.191,g
+kidney_weight,FVB,8wk,8,0.195,g
+glomeruli_per_kidney,FVB,8wk,8,4820,glomeruli/kidney
+glomeruli_per_kidney,FVB,8wk,8,6200,glomeruli/kidney
+glomeruli_per_kidney,FVB,8wk,8,6140,glomeruli/kidney
+glomeruli_per_kidney,FVB,8wk,8,5800,glomeruli/kidney
+glomeruli_per_kidney,FVB,8wk,8,6480,glomeruli/kidney
+kidney_weight,B6,1yr,52,0.177,g
+kidney_weight,B6,1yr,52,0.173,g
+kidney_weight,B6,1yr,52,0.215,g
+kidney_weight,B6,1yr,52,0.18,g
+kidney_weight,B6,1yr,52,0.205,g
+glomeruli_per_kidney,B6,1yr,52,8940,glomeruli/kidney
+glomeruli_per_kidney,B6,1yr,52,7420,glomeruli/kidney
+glomeruli_per_kidney,B6,1yr,52,8940,glomeruli/kidney
+glomeruli_per_kidney,B6,1yr,52,7480,glomeruli/kidney
+glomeruli_per_kidney,B6,1yr,52,8520,glomeruli/kidney
+body_weight,B6,1yr,52,34.8,g
+body_weight,B6,1yr,52,33,g
+body_weight,B6,1yr,52,37.8,g
+body_weight,B6,1yr,52,36.5,g
+body_weight,B6,1yr,52,34.3,g
+kidney_weight,FVB,1yr,52,0.294,g
+kidney_weight,FVB,1yr,52,0.238,g
+kidney_weight,FVB,1yr,52,0.263,g
+kidney_weight,FVB,1yr,52,0.258,g
+kidney_weight,FVB,1yr,52,0.276,g
+glomeruli_per_kidney,FVB,1yr,52,6900,glomeruli/kidney
+glomeruli_per_kidney,FVB,1yr,52,6780,glomeruli/kidney
+glomeruli_per_kidney,FVB,1yr,52,7760,glomeruli/kidney
+glomeruli_per_kidney,FVB,1yr,52,7880,glomeruli/kidney
+glomeruli_per_kidney,FVB,1yr,52,7100,glomeruli/kidney
+body_weight,FVB,1yr,52,36.3,g
+body_weight,FVB,1yr,52,34.8,g
+body_weight,FVB,1yr,52,37.9,g
+body_weight,FVB,1yr,52,36,g
+body_weight,FVB,1yr,52,39.5,g
+kidney_weight,B6,1.5yr,78,0.235,g
+kidney_weight,B6,1.5yr,78,0.19,g
+kidney_weight,B6,1.5yr,78,0.227,g
+glomeruli_per_kidney,B6,1.5yr,78,8100,glomeruli/kidney
+glomeruli_per_kidney,B6,1.5yr,78,7440,glomeruli/kidney
+glomeruli_per_kidney,B6,1.5yr,78,8360,glomeruli/kidney
+body_weight,B6,1.5yr,78,38.7,g
+body_weight,B6,1.5yr,78,37.4,g
+body_weight,B6,1.5yr,78,39.2,g
+kidney_weight,FVB,1.5yr,78,0.29,g
+kidney_weight,FVB,1.5yr,78,0.32,g
+kidney_weight,FVB,1.5yr,78,0.285,g
+glomeruli_per_kidney,FVB,1.5yr,78,5780,glomeruli/kidney
+glomeruli_per_kidney,FVB,1.5yr,78,6020,glomeruli/kidney
+glomeruli_per_kidney,FVB,1.5yr,78,6320,glomeruli/kidney
+body_weight,FVB,1.5yr,78,39.8,g
+body_weight,FVB,1.5yr,78,41.8,g
+body_weight,FVB,1.5yr,78,39.2,g
+glom_diameter,B6,10wk,10,64.24000000000001,um
+glom_diameter,B6,10wk,10,65.15,um
+glom_diameter,B6,10wk,10,63.19,um
+glom_diameter,B6,10wk,10,67.31500000000001,um
+glom_diameter,B6,10wk,10,67.71000000000001,um
+glom_diameter,B6,1yr,52,79.15000000000002,um
+glom_diameter,B6,1yr,52,69.96000000000001,um
+glom_diameter,B6,1yr,52,77.41499999999999,um
+glom_diameter,B6,1yr,52,77.97,um
+glom_diameter,B6,1yr,52,73.97999999999999,um
+glom_diameter,FVB,10wk,10,66.70500000000001,um
+glom_diameter,FVB,10wk,10,63.325,um
+glom_diameter,FVB,10wk,10,65.68999999999998,um
+glom_diameter,FVB,10wk,10,65.21000000000001,um
+glom_diameter,FVB,10wk,10,64.81499999999998,um
+glom_diameter,FVB,1yr,52,91.10500000000002,um
+glom_diameter,FVB,1yr,52,95.65499999999999,um
+glom_diameter,FVB,1yr,52,93.95999999999998,um
+glom_diameter,FVB,1yr,52,93.20000000000002,um
+glom_diameter,FVB,1yr,52,93.76499999999997,um
+uacr,B6,10wk,10,7.136493725369219,mg/g creatinine
+uacr,B6,10wk,10,4.539576606119459,mg/g creatinine
+uacr,B6,10wk,10,6.121183210890921,mg/g creatinine
+uacr,B6,10wk,10,3.4573104360076905,mg/g creatinine
+uacr,B6,10wk,10,4.586949134885464,mg/g creatinine
+uacr,B6,52wk,52,7.1870979666481,mg/g creatinine
+uacr,B6,52wk,52,6.971614574132314,mg/g creatinine
+uacr,B6,52wk,52,7.972708589589732,mg/g creatinine
+uacr,B6,52wk,52,3.315543400333168,mg/g creatinine
+uacr,B6,52wk,52,7.038452349751284,mg/g creatinine
+uacr,FVB,10wk,10,4.528596544715507,mg/g creatinine
+uacr,FVB,10wk,10,6.007368788020922,mg/g creatinine
+uacr,FVB,10wk,10,6.616409154622968,mg/g creatinine
+uacr,FVB,10wk,10,9.648137009522854,mg/g creatinine
+uacr,FVB,10wk,10,10.192696897453297,mg/g creatinine
+uacr,FVB,10wk,10,11.60856058401194,mg/g creatinine
+uacr,FVB,10wk,10,13.18683253484375,mg/g creatinine
+uacr,FVB,10wk,10,15.938616703913018,mg/g creatinine
+uacr,FVB,10wk,10,17.54723032461773,mg/g creatinine
+uacr,FVB,10wk,10,19.3237444847655,mg/g creatinine
+uacr,FVB,10wk,10,28.74722464945079,mg/g creatinine
+uacr,FVB,52wk,52,5.599885009081551,mg/g creatinine
+uacr,FVB,52wk,52,12.09600318529155,mg/g creatinine
+uacr,FVB,52wk,52,12.467176921062569,mg/g creatinine
+uacr,FVB,52wk,52,14.455243414832031,mg/g creatinine
+uacr,FVB,52wk,52,21.577148133929764,mg/g creatinine
+uacr,FVB,52wk,52,21.732847375017915,mg/g creatinine
+uacr,FVB,52wk,52,24.151142899547178,mg/g creatinine
+uacr,FVB,52wk,52,25.490304545417004,mg/g creatinine
+uacr,FVB,52wk,52,25.87288796407805,mg/g creatinine
+uacr,FVB,52wk,52,38.33226658933588,mg/g creatinine
+uacr,FVB,52wk,52,40.74791780504689,mg/g creatinine

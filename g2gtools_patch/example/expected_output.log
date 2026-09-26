@@ -1,0 +1,66 @@
+chr1	3000	35	60	61
+chr2	1000	3120	60	61
+================ (a) installed g2gtools CLI: g2gtools convert -f bam --reverse ================
+exit code: 0
+[g2gtools] VCI FILE: /usr/local/jupyter/FVB_B6_glo/rerun2/A/patch_v2/mre/work/fvb.vci.gz
+[g2gtools] INPUT FILE: /usr/local/jupyter/FVB_B6_glo/rerun2/A/patch_v2/mre/work/fvb_coords.bam
+[g2gtools] OUTPUT FILE: /usr/local/jupyter/FVB_B6_glo/rerun2/A/patch_v2/mre/work/cli_reverted.bam
+[g2gtools] UNMAPPED FILE: /usr/local/jupyter/FVB_B6_glo/rerun2/A/patch_v2/mre/work/cli_reverted.bam.unmapped
+[g2gtools] Parsing vci file...
+[g2gtools] VCI file parsed
+[g2gtools] Converting BAM file
+[g2gtools] All reads processed
+[g2gtools]            5 TOTAL ENTRIES
+[g2gtools]            0 TOTAL UNMAPPED 
+[g2gtools]            0 TOTAL FAIL QC 
+[g2gtools] 
+[g2gtools] Mapping Summary Single End
+[g2gtools]            5 TOTAL ENTRIES
+[g2gtools] 
+[g2gtools]            0 TOTAL SUCCESS
+[g2gtools]            0 Simple
+[g2gtools]            0 Complex
+[g2gtools] 
+[g2gtools]            5 TOTAL FAILURES
+[g2gtools]            5 Cannot Map 
+[g2gtools] BAM File Converted
+-rw-r--r-- 1 root root 299 Sep 15 16:14 cli_reverted.bam
+-rw-r--r-- 1 root root 501 Sep 15 16:14 cli_reverted.bam.unmapped
+@SQ	SN:chr1	LN:3000
+@SQ	SN:chr2	LN:1000
+================ (a2) installed bsam.convert_bam_file with a VCIFile that is constructed but not parsed ================
+exit: 0
+mapping_tree size before parse: 0
+================ (a3) installed bsam.convert_bam_file with a PARSED VCIFile (isolates the SQ-header defect) ================
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.11/dist-packages/g2gtools/bsam.py", line 321, in convert_bam_file
+    alignment_new.tid = name_to_id[mappings[0].to_chr]
+                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'chr1'
+mapping_tree size after parse: 1
+EXCEPTION: KeyError 'chr1'
+================ (b) patched: g2g_bam_convert.py + bsam_fixed.py ================
+exit code: 0
+Parsed VCI: 1 contigs with variant records; identity mapping added for 1 contigs: chr2
+@SQ	SN:chr1	LN:3000
+@SQ	SN:chr2	LN:1000
+read0	0	chr1	101	60	100M
+read1	0	chr1	751	60	100M
+read2	0	chr1	1704	60	100M
+read3	0	chr1	2601	60	100M
+read_chr2	0	chr2	201	60	100M
+---- expected ----
+read	fvb_start0	expected_ref_start0
+read0	100	100
+read1	750	750
+read2	1700	1703
+read3	2600	2600
+read_chr2	200	200
+reads written to patched_reverted.bam.unmapped: []
+read0 chr1 ref_start0 100 expected 100 cigar 100M mismatches vs reference (1 expected only for the SNP read): 0 -> OK
+read1 chr1 ref_start0 750 expected 750 cigar 100M mismatches vs reference (1 expected only for the SNP read): 1 -> OK
+read2 chr1 ref_start0 1703 expected 1703 cigar 100M mismatches vs reference (1 expected only for the SNP read): 0 -> OK
+read3 chr1 ref_start0 2600 expected 2600 cigar 100M mismatches vs reference (1 expected only for the SNP read): 0 -> OK
+read_chr2 chr2 ref_start0 200 expected 200 cigar 100M mismatches vs reference (1 expected only for the SNP read): 0 -> OK
+ALL_OK

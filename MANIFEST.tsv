@@ -1,0 +1,56 @@
+category	target	source_path_in_analysis_dir	repo_path	outputs	md5	md5_matches_source	size_bytes
+pipeline	Read trimming	run_fastp.sh	pipeline/run_fastp.sh	results/phase0/fastp/*_trimmed_R{1,2}.fastq.gz	4c53aeeffb7b5c5342932f02ccfc60b7	True	615
+pipeline	Read trimming (E13.5 batch)	run_fastp_e135.sh	pipeline/run_fastp_e135.sh	results/phase0/fastp/	ef5a08b16df552418c8aa1456a0f3d28	True	695
+pipeline	Library-type inference (salmon -l A)	run_salmon_e135.sh	pipeline/run_salmon_e135.sh	results/phase0/sex_check/*/lib_format_counts.json	26339bca241c516e9ef3fa31793564af	True	613
+pipeline	Library-type inference (P1)	run_salmon_p1.sh	pipeline/run_salmon_p1.sh	results/phase0/sex_check/	3ee4af2131b30615d0b44d291a68ecf4	True	605
+pipeline	STAR index, GRCm39	run_star_index.sh	pipeline/run_star_index.sh	refs/star_grcm39/	2bb496fe44931e6683e274fffd1d671b	True	333
+pipeline	STAR index, condition A	run_star_condA_index.sh	pipeline/run_star_condA_index.sh	refs/star_condA/	bc3434b699c2efc580b3afb1c39ca770	True	347
+pipeline	STAR index, condition B	run_star_condB_index.sh	pipeline/run_star_condB_index.sh	refs/star_condB/	dc0e5c5479b54938f13b8203f6bdfb0f	True	341
+pipeline	STAR, reference arm	run_star_uncorrected.sh	pipeline/run_star_uncorrected.sh	results/phase2/star_uncorrected/	0ed1904c685c08dd28c8c65f1f208620	True	772
+pipeline	FVB variant extraction (all + private)	run_phase1_variants_v2.sh	pipeline/run_phase1_variants_v2.sh	results/phase1/variants/	36e897252ff5702b9d36af0f3dbd7449	True	2099
+pipeline	Variant normalisation for g2gtools	run_phase2_norm.sh	pipeline/run_phase2_norm.sh	results/phase2/g2g/FVB.{snps,indels}.norm.vcf.gz	0dabefad231f4fbe29ef2a62a4b8a6d3	True	513
+pipeline	Personalised genome, condition A	run_phase2_condA.sh	pipeline/run_phase2_condA.sh	results/phase2/g2g/condA/	f8b5f7d2ed9c4b4d27588bb22a5d190a	True	579
+pipeline	Personalised genome, condition B	run_phase2_condB.sh	pipeline/run_phase2_condB.sh	results/phase2/g2g/condB/	47b21f7ba0fb5ff767ef65937f605895	True	942
+pipeline	FINAL requantification, all arms	rerun3/S2/scripts/run_phase2_s2pairs.sh	pipeline/run_phase2_s2pairs.sh	rerun3/S2/out/phase2_s2pairs/counts/	7c70fdb25376fa50609ab6cedb5a5091	True	4519
+pipeline	FINAL featureCounts (-p --countReadPairs -s 2)	rerun3/S2/scripts/featurecounts_s2_pairs.sh	pipeline/featurecounts_s2_pairs.sh	rerun3/S2/out/uncorrected_s2_pairs/	35b23054a280ac2c29f8794e9ff32f80	True	1460
+pipeline	Count matrix assembly	rerun3/S2/scripts/build_matrix_param.py	pipeline/build_matrix_param.py	rerun3/S2/out/mat/*_counts.tsv	742a6d49baf988a4b37b46770dc18669	True	1402
+pipeline	FINAL DESeq2 (hybrid matrix)	rerun2/A/scripts/run_deseq2_param.R	pipeline/run_deseq2_param.R	rerun3/S2/out/deseq2_s2p_hybrid/	6f0130556efb97dab3c2662722685387	True	3894
+pipeline	Hybrid-design artefact screen (D11)	rerun3/S2/scripts/reverse_control_param.py	pipeline/reverse_control_param.py	rerun3/S2/out/d11/	8e79d10930e0f7cd1102c9efa0acabaa	True	1856
+pipeline	GEO processed matrices	geo_submission/build_geo_matrices.py	pipeline/build_geo_matrices.py	geo_submission/processed/	132cd2d79a71180a0a95470256dbd907	True	2508
+analysis	Allele-wise private variant extraction	rerun3/V1/scripts/extract_private_allelewise.sh	analysis/extract_private_allelewise.sh	rerun3/V1/out/private_*_allelewise.vcf.gz	f8bd3b438bd5553b31cd1ddee7f1d5cb	True	1840
+analysis	Gene annotation and variant density	rerun2/E3/scripts/make_intermediates.sh	analysis/make_intermediates.sh	genes.sorted.bed, gene_variant_counts.bed	67459ae7452b62eaf974fb7ec85edd32	True	3384
+analysis	Regulatory-variant intermediates	rerun3/V1/scripts/make_reg_intermediates.sh	analysis/make_reg_intermediates.sh	rerun3/V1/reg/	38318b5a5b3f25dd39521b67eff9f17e	True	2672
+analysis	motifbreakR join table	rerun2/E3/scripts/make_allreg_full.py	analysis/make_allreg_full.py	rerun3/F7/allreg_full.tsv	86735f7c80a6d315d2f71c0cc8447fd8	True	828
+analysis	Mapping-bias QC	rerun2/A/scripts/bias_qc_param.py	analysis/bias_qc_param.py	rerun3/S2/out/bias_qc_s2p/	9a2ffd2ac46f3b62fca67de807379d54	True	4934
+analysis	Forward vs reverse genome swap	rerun4/reverse_control/forward_vs_reverse.py	analysis/forward_vs_reverse.py	rerun4/reverse_control/metrics.tsv	937bbe18dd948ff595af5a5efdcfdbec	True	5127
+analysis	Variant-density quartile means	rerun5/density/quartile_recompute.py	analysis/quartile_recompute.py	rerun5/density/quartile_means.tsv	b98eac34999174caec59c0f3944f3dfb	True	5185
+analysis	FINAL candidate funnel (all tied genes)	rerun5/ties/cis_candidates_alltie.py	analysis/cis_candidates_alltie.py	rerun5/ties/candidates_alltie/	25c611a5c824f13eb0cc2eb56fda10d0	True	6771
+analysis	FINAL Table 3	rerun5/ties/build_table3_v3.py	analysis/build_table3_v3.py	rerun5/ties/Table3_alltie.csv	77846a64aba6e46d223c1f84e98b5168	True	5740
+analysis	Four-strain genotype extraction	rerun4/concordance/extract_genotypes_v3.sh	analysis/extract_genotypes_v3.sh	rerun4/concordance/*_genotypes_v3.txt	9612108bab08402ad44ebe341d4d29d2	True	1356
+analysis	FINAL allele-dosage concordance	rerun4/concordance/rank_concordance_v3.py	analysis/rank_concordance_v3.py	rerun4/concordance/summary.tsv	30f28bbc7ffc532e69b1d32fb765c118	True	4772
+analysis	motifbreakR (allele-wise input)	rerun2/D2/scripts/run_motifbreakr_v3_assert.R	analysis/run_motifbreakr_v3_assert.R	rerun3/F7/motifbreakr/	b2dc52da036b9faca62ab661bf2a4298	True	3338
+analysis	Kidney gene-set enrichment (106 sets)	rerun2/G/scripts/run_fgsea_samplesize.R	analysis/run_fgsea_samplesize.R	rerun3/S2/out/fgsea_106sets_s2p/	21c35b88984af4929c4f30947ed84caa	True	3139
+analysis	Unrestricted gene-set enrichment	rerun3/GSEA/scripts/run_gsea_unrestricted.R	analysis/run_gsea_unrestricted.R	rerun3/GSEA/out_s2p/	53793c7db3aa9287c308d778697087f3	True	3850
+analysis	Pre-specified interferon sets by stage	rerun6/isg_prespecified.R	analysis/isg_prespecified.R	rerun6/isg_prespecified.tsv	d349faa9cc294af5aa4c8c4646bd68a9	True	1607
+analysis	Liver replication (GSE167328)	rerun3/ISG_liver/run_liver_isg.R	analysis/run_liver_isg.R	rerun3/ISG_liver/out/	f22db7668a68a12110b0deb507be62f4	True	3252
+analysis	Cell-composition deconvolution	rerun2/A/scripts/run_deconvolution_v2_param.R	analysis/run_deconvolution_v2_param.R	rerun3/S2/out/deconv_s2p/	540dfaab5ef555c3f7d48638d932ab81	True	7746
+analysis	Phenotype statistics (ANOVA, Tukey)	analyze_phenotype.py	analysis/analyze_phenotype.py	console output, Table 1 inputs	e712f8a17fa88bc23c1ab236d9f1c550	True	4302
+analysis	Tukey HSD without statsmodels	rerun6/tukey.py	analysis/tukey.py	rerun6/figure1_stars.tsv	4ddc4e1d0943d6dec0617bb7c0a81ec9	True	915
+analysis	Table 1 and legacy Table 3	build_submission_tables.py	analysis/build_submission_tables.py	submission/tables/Table1_phenotype_summary.csv	31879d65f6e57bcb7acd213f734860aa	True	4888
+analysis	FINAL Table 2	rerun6/build_table2_final.py	analysis/build_table2_final.py	rerun6/Table2_final.csv	c4608fdd5e23ffa396deba48de8cd482	True	3725
+figures	Figure 1 (phenotype, Tukey HSD stars, TOST)	rerun7/fig1/plot_figure1_tukey.py	figures/plot_figure1.py	rerun7/fig1/Figure1.*, figure1_stars_tukey.tsv	d9bcd873bc144c5e66110c0440664e89	True	7339
+figures	Figure 2 (ageing cohort)	submission/code/plot_aging_phenotype.py	figures/plot_aging_phenotype.py	submission/figures/Figure2.*	5b462d4569d66d11b344f82c21dfadc4	True	8842
+figures	Figure 3A-B (mapping rates)	submission/code/plot_fig2_panelA.py	figures/plot_figure3_panelsAB.py	submission/figures/Figure3_panelsAB.*	716b2e7e3aa1a71ffcba0f52ba8cec8c	True	3167
+figures	Figure 3C-F (bias correction)	rerun2/G/scripts/plot_figure3_CF.py	figures/plot_figure3_CF.py	rerun3/figures/Figure3_panelsCF.*	192b10c37c19edbcfbb0b5b20a115698	True	6472
+figures	Figure 4 (DE, GDNF-RET, GSEA)	rerun2/G/scripts/plot_figure4.py	figures/plot_figure4.py	rerun3/figures/Figure4.*	a5d3b7977368ac780c5c6563e4a16e1c	True	4707
+figures	Figure 5 (deconvolution)	rerun3/F5/plot_figure5.py	figures/plot_figure5.py	rerun3/figures/Figure5.*	103df86fb29748612591785231a425b4	True	3859
+figures	Figure 6 (prioritisation caveats)	rerun3/F7/plot_figure7_v2.py	figures/plot_figure6.py	rerun3/figures/F7/	dde4b43e834845efa2042a011c660010	True	6802
+figures	Figure 7 (unrestricted GSEA; panel B uses pre-specified Hallmark sets)	rerun7/fig7/plot_figure7_v2.py	figures/plot_figure7.py	rerun7/fig7/Figure7.*	05e66e01a36f5bc4951785a82cc19bbf	True	9740
+figures	Forward vs reverse scatter	rerun4/reverse_control/plot_forward_vs_reverse.py	figures/plot_forward_vs_reverse.py	rerun4/reverse_control/forward_vs_reverse.*	f22ade313b5dd6ad93b17771b246a98f	True	2188
+g2gtools_patch	Reverse BAM conversion, identity mapping	rerun2/A/patch_v2/g2g_bam_convert_v2.py	g2gtools_patch/g2g_bam_convert_v2.py	results/phase2/g2g/reverted/	41d3ad23accfb5ca465a03b27e4005de	True	2144
+g2gtools_patch	Patched bsam module	rerun2/A/patch_v2/bsam_fixed.py	g2gtools_patch/bsam_fixed.py	(imported by the wrapper)	9602d31e795d9318760f098d43f7ae9f	True	41765
+figures	Tukey HSD implementation (no statsmodels)	rerun7/fig1/tukey.py	figures/tukey.py	imported by plot_figure1.py	4ddc4e1d0943d6dec0617bb7c0a81ec9	True	915
+figures	Equivalence testing (TOST) helper	rerun2/B2/scripts/tost_options.py	figures/tost_options.py	imported by plot_figure1.py	09aebffa7df28e6f4f09874720834848	True	2774
+analysis	Figure 7B data, pre-specified Hallmark interferon sets	rerun7/fig7/make_panelB_data.R	analysis/make_figure7B_data.R	rerun7/fig7/panelB_hallmark_interferon.tsv	85df737df942b09d7f996079e6630de8	True	1455
+analysis	Kidney-axis and CAKUT gene lists	assign_tiers_v3_ckd_genes.py	analysis/assign_tiers_v3_ckd_genes.py	gene-list membership checks	7daa2473789d8071a7f36ddcf9d7833b	True	4540
+source_data	Figure 7B summary (gene count, median log2FC, FDR<0.1 fraction per set and stage)	rerun7/fig7/panelB_summary.tsv	source_data/Figure7B_summary.tsv	(plotted as the annotations on Figure 7B)	68d7f172a1f515cd56f923ada1ae11b7	True	329

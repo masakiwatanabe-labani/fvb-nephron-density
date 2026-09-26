@@ -1,0 +1,36 @@
+# raw and intermediate data are not distributed here
+*.fastq
+*.fastq.gz
+*.fq.gz
+*.bam
+*.bai
+*.cram
+*.crai
+*.sam
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi
+*.vcf.gz.csi
+*.fa
+*.fa.gz
+*.fasta
+*.fai
+*.gtf
+*.gtf.gz
+*.bed.gz
+*.rds
+*.RData
+*.Rhistory
+# aligner indices
+star_*/
+salmon_index/
+*.vci
+*.vci.gz
+# scratch
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.tmp
+*.log.gz
+.DS_Store
+COMMIT_REPORT.md

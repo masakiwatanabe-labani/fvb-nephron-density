@@ -1,0 +1,74 @@
+# Diff of the patched module against upstream g2gtools 0.2.7
+# upstream: /usr/local/lib/python3.11/dist-packages/g2gtools/bsam.py.bak (pristine copy kept when the module was patched in place)
+# patched : g2gtools_patch/bsam_fixed.py
+
+--- /usr/local/lib/python3.11/dist-packages/g2gtools/bsam.py.bak	2026-06-16 19:02:56.858011261 +0900
++++ g2gtools_patch/bsam_fixed.py	2026-09-15 16:14:24.000000000 +0900
+@@ -14,12 +14,12 @@
+ 
+ import pysam
+ 
+-from . import compat
+-from . import exceptions
+-from . import g2g
+-from . import g2g_utils
+-from . import vci
+-from . import __version__
++from g2gtools import compat
++from g2gtools import exceptions
++from g2gtools import g2g
++from g2gtools import g2g_utils
++from g2gtools import vci
++from g2gtools import __version__
+ 
+ FLAG_NONE = 0x0             # base value
+ FLAG_PAIRED = 0x1           # template having multiple segments in sequencing
+@@ -151,17 +151,22 @@
+     new_header['HD'] = {'VN': 1.0, 'SO': 'coordinate'}
+ 
+     # replace SQ
++    # NOTE: upstream g2gtools 0.2.7 leaves this section as a TODO stub
++    # (chain_file no longer exists; VCI-based conversion never populated
++    # new_header['SQ']/name_to_id), which makes every read fail with
++    # KeyError on name_to_id lookups. Fixed here using vci_file.contigs,
++    # which holds the target-genome contig name -> length map parsed from
++    # the VCI's ##CONTIG header lines.
+     tmp = []
+     name_to_id = {}
+     id = 0
+ 
+-    # TODO: Fix
+-    #for ref_name in sorted(chain_file.chrom_size_to):
+-    #    tmp.append({'LN': chain_file.chrom_size_from[ref_name], 'SN': ref_name})
+-    #    name_to_id[ref_name] = id
+-    #    id += 1
++    for ref_name in sorted(vci_file.contigs.keys()):
++        tmp.append({'LN': vci_file.contigs[ref_name], 'SN': ref_name})
++        name_to_id[ref_name] = id
++        id += 1
+ 
+-    #new_header['SQ'] = tmp
++    new_header['SQ'] = tmp
+ 
+     if 'PG' not in new_header:
+         new_header['PG'] = []
+@@ -222,7 +227,7 @@
+                 LOG.info("Processed {0:,} reads, {1:,} successful, {2:,} failed".format(total, status_success, status_failed))
+ 
+             if compat.is_py2:
+-                alignment = sam_file.next()
++                alignment = next(sam_file)
+             else:
+                 alignment = next(sam_file)
+ 
+@@ -552,6 +557,10 @@
+         LOG.info("  {:>10} Cannot Map".format(map_statistics_pair['fail_cannot_map']))
+         LOG.info("")
+ 
++    new_file.close()
++    new_file_unmapped.close()
++    sam_file.close()
++
+     LOG.info("BAM File Converted")
+ 
+ 

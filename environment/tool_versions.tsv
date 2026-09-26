@@ -1,0 +1,18 @@
+tool	version	how_determined
+fastp	1.3.6	conda run -n fvb_pipeline fastp --version
+STAR	2.7.10a 	STAR --version
+featureCounts	 featureCounts v2.0.3 	featureCounts -v
+samtools	samtools 1.15.1 Using htslib 1.15.1 	samtools --version
+bcftools	bcftools 1.21 Using htslib 1.21 	bcftools --version
+bedtools	bedtools v2.31.1 	bedtools --version
+salmon	2.4.1 (Rust port)	conda run -n fvb_pipeline salmon --version
+g2gtools	0.2.7	python -c import g2gtools
+python	3.11.2	sys.version
+R	R version 4.2.2 (2022-10-31)	R.version.string
+DESeq2	1.38.3	packageVersion
+fgsea	1.24.0	packageVersion
+msigdbr	26.1.0	packageVersion
+babelgene	22.9	packageVersion
+motifbreakR	2.12.3	packageVersion
+MotifDb	1.40.0	packageVersion
+nnls	1.6	packageVersion

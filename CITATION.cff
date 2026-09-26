@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper it accompanies."
+title: >-
+  Nephron endowment relative to renal mass distinguishes FVB/N from three other
+  inbred mouse strains: phenotypic characterisation and bias-corrected
+  developmental transcriptome analysis
+abstract: >-
+  Analysis code for the revised manuscript. Covers read trimming, alignment to
+  FVB/N personalised genomes, quantification, differential expression,
+  mapping-bias quality control, candidate prioritisation, allele-dosage
+  concordance, gene-set enrichment, cell-composition deconvolution and every
+  figure and table reported in the paper.
+type: software
+version: v1.0-revision
+license: MIT
+repository-code: "https://github.com/masakiwatanabe-labani/fvb-nephron-density"
+authors:
+  - family-names: Omori
+    given-names: Tomoki
+    affiliation: >-
+      Laboratory of Laboratory Animal Science and Medicine, School of Veterinary
+      Medicine, Kitasato University
+  - family-names: Watanabe
+    given-names: Masaki
+    affiliation: >-
+      Laboratory of Laboratory Animal Science and Medicine, School of Veterinary
+      Medicine, Kitasato University
+  - family-names: Nakagawa
+    given-names: Ryuya
+    affiliation: >-
+      Laboratory of Laboratory Animal Science and Medicine, School of Veterinary
+      Medicine, Kitasato University
+  - family-names: Sasaki
+    given-names: Takeru
+    affiliation: >-
+      Laboratory of Laboratory Animal Science and Medicine, School of Veterinary
+      Medicine, Kitasato University
+  - family-names: Sasaki
+    given-names: Nobuya
+    affiliation: >-
+      Laboratory of Laboratory Animal Science and Medicine, School of Veterinary
+      Medicine, Kitasato University
+keywords:
+  - nephron endowment
+  - glomerular density
+  - FVB/N
+  - reference genome bias
+  - personalised genome
+  - kidney development
+  - RNA sequencing

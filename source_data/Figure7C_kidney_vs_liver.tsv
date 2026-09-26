@@ -1,0 +1,13 @@
+programme	n_leading_edge	kidney_P1_median	kidney_n_sig	kidney_n	liver_median	liver_n_sig	liver_n
+Interferon	60	-1.122	48	60	-0.683	29	60
+"Oxidative
+phosphorylation"	82	0.164	10	82	0.043	4	82
+"Fatty acid
+metabolism"	47	0.363	16	47	0.085	3	47
+"Aerobic
+respiration"	65	0.232	12	65	0.059	6	63
+"Mitochondrion
+organization"	128	0.244	10	128	0.059	7	125
+MYC targets	67	0.143	2	67	-0.03	4	67
+"Ribosome
+biogenesis"	105	0.184	4	105	-0.005	2	105

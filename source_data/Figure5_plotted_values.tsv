@@ -1,0 +1,39 @@
+panel	item	value
+A	pseudo-bulk r	0.853
+A	pseudo-bulk MAE	0.0335
+B	E13.5 B6 Cap_Mesenchyme	0.3872
+B	E13.5 B6 Nephron_Progenitor	0.2068
+B	E13.5 B6 Ureteric_Bud	0.0363
+B	E13.5 B6 Stromal	0.2558
+B	E13.5 B6 Podocytes	0.0305
+B	E13.5 B6 Endothelial	0.0833
+B	E13.5 FVB Cap_Mesenchyme	0.3842
+B	E13.5 FVB Nephron_Progenitor	0.2283
+B	E13.5 FVB Ureteric_Bud	0.0237
+B	E13.5 FVB Stromal	0.2429
+B	E13.5 FVB Podocytes	0.0305
+B	E13.5 FVB Endothelial	0.0904
+B	E13.5 NPC lineage B6	0.5941
+B	E13.5 NPC lineage FVB	0.6125
+B	E13.5 NPC lineage p	0.6939
+C	P1 B6 Cap_Mesenchyme	0.1715
+C	P1 B6 Nephron_Progenitor	0.0029
+C	P1 B6 Ureteric_Bud	0.0835
+C	P1 B6 Stromal	0.362
+C	P1 B6 Podocytes	0.0429
+C	P1 B6 Proximal_Tubule	0.1636
+C	P1 B6 Distal_Tubule	0.0524
+C	P1 B6 Loop_of_Henle	0.0191
+C	P1 B6 Endothelial	0.102
+C	P1 FVB Cap_Mesenchyme	0.1455
+C	P1 FVB Nephron_Progenitor	0.041
+C	P1 FVB Ureteric_Bud	0.0955
+C	P1 FVB Stromal	0.3392
+C	P1 FVB Podocytes	0.0397
+C	P1 FVB Proximal_Tubule	0.1679
+C	P1 FVB Distal_Tubule	0.0497
+C	P1 FVB Loop_of_Henle	0.0216
+C	P1 FVB Endothelial	0.1
+C	P1 NPC lineage B6	0.1745
+C	P1 NPC lineage FVB	0.1864
+C	P1 NPC lineage p	0.6473
