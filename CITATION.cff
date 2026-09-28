@@ -5,13 +5,13 @@ title: >-
   three other inbred mouse strains: phenotypic characterisation and
   bias-corrected developmental transcriptome analysis
 abstract: >-
-  Analysis code for the revised manuscript. Covers read trimming, alignment to
+  Analysis code for the submitted manuscript. Covers read trimming, alignment to
   FVB/N personalised genomes, quantification, differential expression,
   mapping-bias quality control, candidate prioritisation, allele-dosage
   concordance, gene-set enrichment, cell-composition deconvolution and every
   figure and table reported in the paper.
 type: software
-version: v1.0-revision
+version: v1.0
 license: MIT
 repository-code: "https://github.com/masakiwatanabe-labani/fvb-nephron-density"
 authors:

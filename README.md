@@ -5,10 +5,10 @@ Analysis code for
 > **Recovered glomerular counts relative to renal mass distinguish FVB/N from three other inbred
 > mouse strains: phenotypic characterisation and bias-corrected developmental transcriptome
 > analysis**
-> (revised manuscript, *International Journal of Molecular Sciences*)
+> (submitted manuscript, *International Journal of Molecular Sciences*)
 
 This repository holds the scripts that produced the figures, tables and numbers reported in the
-revised manuscript. It does not hold raw or intermediate data.
+submitted manuscript. It does not hold raw or intermediate data.
 
 ---
 
@@ -140,4 +140,4 @@ See `CITATION.cff`. The journal reference will be added when the paper is publis
 
 https://github.com/masakiwatanabe-labani/fvb-nephron-density
 
-Tag `v1.0-revision` marks the state of the code used for the revised manuscript.
+Tag `v1.0` marks the state of the code used for the submitted manuscript.
