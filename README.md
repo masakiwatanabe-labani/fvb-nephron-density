@@ -2,7 +2,7 @@
 
 Analysis code for
 
-> **Recovered glomerular counts relative to renal mass distinguish FVB/N from three other inbred
+> **Recovered glomerular counts relative to kidney mass distinguish FVB/N from three other inbred
 > mouse strains: phenotypic characterisation and bias-corrected developmental transcriptome
 > analysis**
 > (submitted manuscript, *International Journal of Molecular Sciences*)
@@ -39,9 +39,10 @@ submitted manuscript. It does not hold raw or intermediate data.
 | `md5_matches_source` | whether that md5 equals the md5 of the file in the original analysis directory |
 
 Every file was copied byte-for-byte and the md5 column was verified against the original after
-copying. Three files were subsequently edited here for wording only — `analysis/isg_predefined.R`,
+copying. Four files were subsequently edited here for wording only — `analysis/isg_predefined.R`,
 `analysis/make_figure7B_data.R` and `figures/plot_figure7.py`, where a comment said
-"pre-specified" instead of "predefined". Their `md5_matches_source` is `False`; no executable
+"pre-specified" instead of "predefined", and `analysis/run_gsea_unrestricted.R`, where a comment
+said "renal mass" instead of "kidney mass". Their `md5_matches_source` is `False`; no executable
 line was changed, so they still reproduce the same output as the files that were run.
 
 ## Important: paths are not rewritten

@@ -3,7 +3,7 @@
 #
 # The submitted analysis tested only gene sets whose NAME matched a kidney regular expression
 # (106 sets). That answers "is the nephrogenic programme altered?" but cannot answer "is anything
-# else altered?" - in particular the postnatal-growth programmes that the phenotype (renal mass per
+# else altered?" - in particular the postnatal-growth programmes that the phenotype (kidney mass per
 # glomerulus) points at. This script tests the collections without a name filter.
 #
 # Genes flagged by the hybrid-design reverse control (D11: B6 read count shifts >2-fold when only the
