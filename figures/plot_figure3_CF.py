@@ -97,7 +97,7 @@ ratio = MS.forward / MS.reverse
 rho_lo, rho_hi = MS.spearman_signed.max(), MS.spearman_signed.min()
 nv = MS[(MS.timepoint == "E13.5") & (MS.arm == "condA")].iloc[0]
 ax.text(0, -0.30, "Across both stages and genome conditions:\n"
-        f"Forward / reverse magnitude: approximately {ratio.min():.1f}\u2013{ratio.max():.1f}\n"
+        f"Forward / reverse magnitude: {ratio.min():.2f}\u2013{ratio.max():.2f}\n"
         f"Signed shifts: Spearman \u03c1 = {rho_lo:.2f} to {rho_hi:.2f}\n"
         f"No FVB variant: forward {nv.novariant_forward:.3f}; reverse {nv.novariant_reverse:.3f}",
         transform=ax.transAxes, ha="left", va="top", fontsize=10.6, color="#555")

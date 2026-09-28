@@ -18,7 +18,9 @@ quantity per variant-density quartile and rounds its summary to four decimals; t
 full precision so that the forward/reverse ratio can be quoted without rounding.
 
 The signed-shift Spearman rho and the no-variant floor are taken from that script's own outputs
-(spearman.tsv and no_variant_genes.tsv), not recomputed.
+(spearman.tsv and no_variant_genes.tsv), not recomputed; its de-duplicated-density rows are used,
+which is the density definition the manuscript states. Neither quantity depends on density, so the
+de-duplicated and duplicated rows are identical here.
 
 Usage: figure3F_matched_shifts.py --matdir DIR --spearman F --no-variant F --out F
 """
@@ -61,10 +63,10 @@ for tp, (fs, bs) in GR.items():
                          forward=f, reverse=r, forward_over_reverse=f / r))
 
 t = pd.DataFrame(rows)
-sp = (pd.read_csv(a.spearman, sep="\t").query("density == 'dup'")
+sp = (pd.read_csv(a.spearman, sep="\t").query("density == 'dedup'")
         [["timepoint", "arm", "spearman_correction_vs_reverse"]]
         .rename(columns={"spearman_correction_vs_reverse": "spearman_signed"}))
-nv = (pd.read_csv(a.no_variant, sep="\t").query("density == 'dup'")
+nv = (pd.read_csv(a.no_variant, sep="\t").query("density == 'dedup'")
         [["timepoint", "arm", "n", "correction_mean_abs", "reverse_mean_abs"]]
         .rename(columns={"n": "novariant_n", "correction_mean_abs": "novariant_forward",
                          "reverse_mean_abs": "novariant_reverse"}))

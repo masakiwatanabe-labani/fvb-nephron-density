@@ -11,7 +11,13 @@ from scipy import stats
 ap = argparse.ArgumentParser()
 ap.add_argument("--matdir", required=True, help="dir with {uncorrected,condA,condB}_counts.tsv")
 ap.add_argument("--gene-chr", required=True, help="TSV with gene_id and chr columns")
-ap.add_argument("--variant-counts", required=True, help="BED-like: chr start end gene_id n_variants")
+ap.add_argument("--variant-counts", required=True,
+                help="BED-like: chr start end gene_id n_variants. Pass the DE-DUPLICATED counts "
+                     "(rerun4/exact_match/gene_variant_counts_dedup.bed): the manuscript defines "
+                     "variant density as unique variant POSITIONS per kb of gene span, so a position "
+                     "carrying both an SNV and an indel record counts once. Passing the duplicated "
+                     "counts leaves every other metric identical but shifts the density Spearman rho "
+                     "in the third decimal (0.0755 instead of 0.0756 at E13.5, condition A).")
 ap.add_argument("--exclude-chroms", default="", help="comma-separated, e.g. chrM,chrY")
 ap.add_argument("--outdir", required=True)
 a = ap.parse_args()

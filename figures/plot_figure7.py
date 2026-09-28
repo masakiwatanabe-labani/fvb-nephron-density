@@ -83,14 +83,14 @@ for i, v in enumerate(data):
 ax.axhline(0, color="k", lw=.8)
 ax.set_xticks(range(len(data))); ax.set_xticklabels(labs, fontsize=8.6)
 ax.set_ylabel("log$_2$ fold change (FVB/N vs C57BL/6J)", fontsize=11)
-ax.set_title("B  Predefined Hallmark interferon sets", fontsize=12.6, weight="bold")
+ax.set_title("B  Predefined Hallmark interferon sets", fontsize=12.6, weight="bold", pad=20)
 lo = min(np.percentile(v, 1) for v in data); hi = max(np.percentile(v, 99) for v in data)
 pad = (hi - lo) * .34
 ax.set_ylim(lo - pad * .5, hi + pad)
 for i, (n_, med, frac) in enumerate(notes):
     ax.annotate(f"n = {n_}\nmed. {med:+.2f}",
                 (i, hi + pad * .12), ha="center", va="bottom", fontsize=8.2, linespacing=1.25)
-ax.text(.5, 1.13, "All available genes; no significance filter", transform=ax.transAxes,
+ax.text(.5, 1.015, "All available genes; no significance filter", transform=ax.transAxes,
         ha="center", va="bottom", fontsize=8.4, color="#777777")
 ax.text(.5, -0.20, "Points: genes; boxes: median and interquartile range\n"
         "Whiskers: within 1.5 \u00d7 IQR; all values shown", transform=ax.transAxes,
