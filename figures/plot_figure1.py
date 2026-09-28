@@ -86,7 +86,7 @@ def panel(ax, col, ylabel, title, fmt="{:.0f}"):
 
 fig, axes = plt.subplots(2, 2, figsize=(9.5, 7.6))
 
-panel(axes[0, 0], "glomeruli_per_kidney", "Glomeruli per kidney", "A  Absolute glomerular number")
+panel(axes[0, 0], "glomeruli_per_kidney", "Glomeruli per kidney", "A  Recovered glomerular number")
 panel(axes[0, 1], "glom_per_g_kw", "Glomeruli / g kidney weight", "B  Normalised to kidney mass")
 panel(axes[1, 0], "kw_bw_pct", "Kidney weight / body weight (%)", "C  Relative kidney mass")
 
@@ -102,7 +102,7 @@ for s in ORDER:
                    label=FULL[s] if sx == "M" else None, zorder=3)
 ax.set_xlabel("Kidney weight (g)", fontsize=12.6)
 ax.set_ylabel("Glomeruli per kidney", fontsize=12.6)
-ax.set_title("D  Internal control: FVB vs BALB/c", fontsize=14, weight="bold")
+ax.set_title("D  Kidney mass versus recovered count", fontsize=14, weight="bold")
 ax.legend(fontsize=10.5, frameon=False, loc="upper left")
 ax.spines[["top", "right"]].set_visible(False)
 ax.tick_params(labelsize=11.2)

@@ -5,7 +5,8 @@ v2 (2026-09-26): panel B now shows the two predefined MSigDB Hallmark interferon
 at both stages. The previous panel used 18 genes taken from the leading edge of the P1 result, which
 made it post-hoc; those 18 genes are no longer shown in the main figure.
 
-The submitted analysis tested only gene sets whose NAME matched a kidney regular expression (106 sets).
+An earlier version of the analysis tested only gene sets whose NAME matched a kidney regular expression
+(106 sets).
 Removing that filter (10,082 sets) reveals two programmes at P1. Panel D reports their effect sizes
 alongside canonical proliferation and growth-factor markers, so the weakness of the metabolic shift is
 visible rather than implied.
@@ -81,19 +82,28 @@ for i, v in enumerate(data):
     ax.scatter(i + rng_b.uniform(-.17, .17, len(v)), v, s=5, c="#444444", alpha=.35, linewidths=0, zorder=3)
 ax.axhline(0, color="k", lw=.8)
 ax.set_xticks(range(len(data))); ax.set_xticklabels(labs, fontsize=8.6)
-ax.set_ylabel("log$_2$ fold change", fontsize=11)
-ax.set_title("B  The interferon programme is\nlow only once it is expressed", fontsize=12.6, weight="bold")
+ax.set_ylabel("log$_2$ fold change (FVB/N vs C57BL/6J)", fontsize=11)
+ax.set_title("B  Predefined Hallmark interferon sets", fontsize=12.6, weight="bold")
 lo = min(np.percentile(v, 1) for v in data); hi = max(np.percentile(v, 99) for v in data)
 pad = (hi - lo) * .34
 ax.set_ylim(lo - pad * .5, hi + pad)
 for i, (n_, med, frac) in enumerate(notes):
-    ax.annotate(f"n = {n_}\nmed {med:+.2f}\nFDR<0.1 {frac*100:.0f}%",
-                (i, hi + pad * .12), ha="center", va="bottom", fontsize=7.6, linespacing=1.25)
+    ax.annotate(f"n = {n_}\nmed. {med:+.2f}",
+                (i, hi + pad * .12), ha="center", va="bottom", fontsize=8.2, linespacing=1.25)
+ax.text(.5, 1.13, "All available genes; no significance filter", transform=ax.transAxes,
+        ha="center", va="bottom", fontsize=8.4, color="#777777")
+ax.text(.5, -0.20, "Points: genes; boxes: median and interquartile range\n"
+        "Whiskers: within 1.5 \u00d7 IQR; all values shown", transform=ax.transAxes,
+        ha="center", va="top", fontsize=7.8, color="#777777")
 
 # ---------------- C: kidney P1 vs adult liver ----------------
 ax = axes[2]; style(ax)
 c = pd.read_csv(a.panelc, sep="\t")
 c["programme"] = c.programme.str.replace("\\n", "\n", regex=False)
+# Omit programmes not supported by the final strand-specific quantification.
+# Keep the retained programme medians exactly as supplied in the source table.
+programme_key = c.programme.str.replace(r"\s+", " ", regex=True).str.strip().str.casefold()
+c = c.loc[~programme_key.isin(["myc targets", "ribosome biogenesis"])].copy()
 yy = np.arange(len(c))[::-1]
 h = 0.36
 ax.barh(yy + h/2, c.kidney_P1_median, height=h, color=[C_IFN if v < 0 else C_MET for v in c.kidney_P1_median],
@@ -103,7 +113,7 @@ ax.barh(yy - h/2, c.liver_median, height=h, color="white", edgecolor="#777777", 
 ax.axvline(0, color="k", lw=.8)
 ax.set_yticks(yy); ax.set_yticklabels(c.programme, fontsize=8.8)
 ax.set_xlabel("median log$_2$ fold change of leading-edge genes", fontsize=11)
-ax.set_title("C  Only the interferon signature\nreplicates in another organ", fontsize=12.6, weight="bold")
+ax.set_title("C  Interferon direction is reproduced\nin an independent liver dataset", fontsize=12.6, weight="bold")
 ax.legend(fontsize=8.8, frameon=False, loc="lower right")
 
 # ---------------- D: effect sizes, with proliferation markers ----------------
@@ -142,7 +152,7 @@ ax.set_ylim(-5, 3)
 ax.text(.99, .985, "tails beyond the axis not shown", transform=ax.transAxes,
         ha="right", va="top", fontsize=8.2, color="#666666")
 ax.set_ylabel("log$_2$ fold change", fontsize=11)
-ax.set_title("D  The metabolic shift is small and\nproliferation does not differ", fontsize=12.6, weight="bold")
+ax.set_title("D  Metabolic shifts and selected\nproliferation-related transcripts", fontsize=12.6, weight="bold")
 for xp, v in [(0, ifn.log2FoldChange.median()), (1.9, met.log2FoldChange.median())]:
     ax.annotate(f"{v:+.2f}", (xp, v), textcoords="offset points", xytext=(0, 7),
                 ha="center", fontsize=8.8, weight="bold")

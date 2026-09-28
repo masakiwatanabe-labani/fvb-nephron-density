@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
-"""Figure 4 (differential expression and GSEA). Same layout and styling as the 'Figure 3' block of plot_omics.py
-(submitted as Figure4), with paths as arguments (no /tmp) and panel D's title and FDR note derived from the data."""
+"""Figure 4 (differential expression and GSEA). Same layout and styling as the 'Figure 3' block of
+plot_omics.py (drawn as Figure4 by an earlier version of the analysis), with paths as arguments
+(no /tmp) and panel D's title and FDR note derived from the data.
+
+v2 (2026-09-28): panels A and B additionally report how many genes were tested, how many received a
+non-missing adjusted P value after DESeq2's independent filtering, and how many reached FDR < 0.1
+before the fold-change cut. Those three counts and the annotated count are different quantities and
+had been reported inconsistently; all four are now printed from the same DESeq2 table."""
 import argparse, os
 import numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg")
@@ -14,7 +20,11 @@ def style(ax): ax.spines[["top", "right"]].set_visible(False); ax.tick_params(la
 fig, axes = plt.subplots(2, 2, figsize=(11.2, 8.8))
 vals_out = []
 for j, tp in enumerate(["E13.5", "P1"]):
-    d = pd.read_csv(os.path.join(a.deseq_dir, f"DESeq2_{tp}.tsv"), sep="\t").dropna(subset=["padj", "log2FoldChange"])
+    raw = pd.read_csv(os.path.join(a.deseq_dir, f"DESeq2_{tp}.tsv"), sep="\t")
+    n_tested = len(raw)                                   # genes that entered DESeq2
+    d = raw.dropna(subset=["padj", "log2FoldChange"])
+    n_padj = len(d)                                       # survived independent filtering
+    n_fdr = int((d.padj < 0.1).sum())                     # FDR < 0.1, before the fold-change cut
     ax = axes[0, j]
     sig = (d.padj < 0.1) & (d.log2FoldChange.abs() > 0.5)
     ax.scatter(d.log2FoldChange[~sig], -np.log10(d.padj[~sig]), s=2.5, color="#cccccc", alpha=.5, rasterized=True)
@@ -22,8 +32,15 @@ for j, tp in enumerate(["E13.5", "P1"]):
     ax.axhline(1, ls="--", lw=.7, color="#888"); ax.axvline(0, lw=.6, color="#888"); ax.set_xlim(-4, 4)
     ax.set_xlabel("log2FC (FVB vs B6)", fontsize=12.6); ax.set_ylabel("−log10 FDR", fontsize=12.6)
     ax.set_title(f"{'A' if j == 0 else 'B'}  Differential expression: {tp}", fontsize=14, weight="bold"); style(ax)
-    ax.text(.02, .96, f"{int(sig.sum())} genes\nFDR<0.1, |log2FC|>0.5", transform=ax.transAxes, va="top", fontsize=9.8, color="#444")
-    vals_out.append((f"{'A' if j == 0 else 'B'}", f"{tp} genes FDR<0.1 & |log2FC|>0.5", int(sig.sum())))
+    ax.text(.02, .96, f"{int(sig.sum())} genes\nFDR<0.1, |log2FC|>0.5", transform=ax.transAxes,
+            va="top", fontsize=9.8, color="#444")
+    ax.text(.02, .845, f"Tested: {n_tested:,}; padj available: {n_padj:,}\nFDR < 0.1 only: {n_fdr:,}",
+            transform=ax.transAxes, va="top", fontsize=8.6, color="#777")
+    L = "A" if j == 0 else "B"
+    vals_out += [(L, f"{tp} genes FDR<0.1 & |log2FC|>0.5", int(sig.sum())),
+                 (L, f"{tp} genes tested", n_tested),
+                 (L, f"{tp} genes with non-missing padj", n_padj),
+                 (L, f"{tp} genes FDR<0.1 (no fold-change cut)", n_fdr)]
 ax = axes[1, 0]
 genes = ["Gdnf", "Gfra1", "Ret", "Six2", "Cited1", "Wnt9b", "Wnt11", "Etv4"]
 id2n = pd.read_csv(a.id2name, sep="\t", header=None, names=["gid", "name"]); n2i = dict(zip(id2n.name, id2n.gid))

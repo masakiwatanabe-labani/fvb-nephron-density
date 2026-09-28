@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 # Unrestricted gene-set enrichment on the developing-kidney DESeq2 results.
 #
-# The submitted analysis tested only gene sets whose NAME matched a kidney regular expression
+# An earlier version of the analysis tested only gene sets whose NAME matched a kidney regular expression
 # (106 sets). That answers "is the nephrogenic programme altered?" but cannot answer "is anything
 # else altered?" - in particular the postnatal-growth programmes that the phenotype (kidney mass per
 # glomerulus) points at. This script tests the collections without a name filter.
@@ -52,7 +52,7 @@ for (tp in c("E13.5", "P1")) {
   n0 <- nrow(d)
   d <- d[!(gene_id %in% d11)]
   d <- d[!is.na(stat) & !is.na(gene_name) & gene_name != ""]
-  # one gene per symbol: keep the first in identifier order, as in the submitted analysis
+  # one gene per symbol: keep the first in identifier order, as in the earlier version of the analysis
   setorder(d, gene_name, gene_id)
   d <- d[!duplicated(gene_name)]
   r <- setNames(d$stat, d$gene_name)

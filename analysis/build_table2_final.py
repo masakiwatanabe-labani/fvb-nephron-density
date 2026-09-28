@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Table 2 rebuilt from the final re-quantification (-p --countReadPairs -s 2, all three arms).
 
-The submitted Table 2 mixed two vintages: mapping rates from the original STAR runs of every arm, and
+An earlier version of Table 2 mixed two vintages: mapping rates from the original STAR runs of every arm, and
 "Assigned to genes" from featureCounts run with -p only (read-level, strand-unaware). Here the mapping
 rates come from the STAR runs that produced the counts actually used, and Assigned is the
 fragment-level rate that featureCounts reports for the same run.

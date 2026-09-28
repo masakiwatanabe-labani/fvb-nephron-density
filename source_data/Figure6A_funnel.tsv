@@ -1,0 +1,7 @@
+step	label	n_genes	candidates_display_order
+1	"Genes assigned to private variants
+in H3K27ac regions (within 100 kb)"	1236	Ildr2;Usp29;Trnp1;Brdt;Flrt1
+2	Also differentially expressed	92	
+3	"Variant within a published
+TF ChIP-seq peak"	7	
+4	Passed candidate quality control	5	

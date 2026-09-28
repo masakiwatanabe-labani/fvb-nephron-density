@@ -37,13 +37,30 @@ submitted manuscript. It does not hold raw or intermediate data.
 | `outputs` | the files it writes |
 | `md5` | md5 of the file as it stands here |
 | `md5_matches_source` | whether that md5 equals the md5 of the file in the original analysis directory |
+| `notes` | how the file here differs from the one in the analysis directory, if it does |
 
 Every file was copied byte-for-byte and the md5 column was verified against the original after
-copying. Four files were subsequently edited here for wording only — `analysis/isg_predefined.R`,
-`analysis/make_figure7B_data.R` and `figures/plot_figure7.py`, where a comment said
-"pre-specified" instead of "predefined", and `analysis/run_gsea_unrestricted.R`, where a comment
-said "renal mass" instead of "kidney mass". Their `md5_matches_source` is `False`; no executable
-line was changed, so they still reproduce the same output as the files that were run.
+copying. Files that were subsequently changed here have `md5_matches_source` set to `False` and the
+change described in `notes`. Four of them are comment-only edits, which leave the output identical.
+The rest are the figure scripts that were brought into line with the submitted figures — the changes
+are listed under "What changed for the submitted figures" below. Two rows are marked `n/a`, because
+the file is derived from an analysis output rather than copied from it.
+
+## What changed for the submitted figures
+
+The figure scripts here draw the figures of the submitted manuscript. Where an earlier version of a
+script drew something else, this is what changed and why:
+
+| Figure | Change |
+|---|---|
+| 2B | Significance markers are Tukey–Kramer comparisons over the six strain-by-age groups, not Welch's t-test with Holm correction within the panel |
+| 2D | Between-strain UACR comparisons are two-sided Welch's t-tests on the **untransformed** values and are not corrected, because those are the values the manuscript reports. The log transform is used only for the two-way ANOVA. Mann–Whitney U is reported as a two-sided exact sensitivity analysis; the one-sided values an earlier draft quoted are not used |
+| 3A–B | The mapping-rate table is an argument and defaults to the final requantification |
+| 3F | The panel used to plot the reverse-control shift against 1.99, the mean \|log2 fold change\| between FVB/N and C57BL/6J in genes chosen for a large strain difference. Those are not the same quantity, so that comparison is withdrawn. The panel now shows the forward and reverse shifts as the **same quantity on the same genes** — the personalised genome minus GRCm39, over the genes that pass \|log2FC_uncorrected\| > 0.1 in both genome conditions (7,028 at E13.5, 10,720 at P1) |
+| 4A–B | The panels also report how many genes were tested, how many kept a non-missing adjusted P value after independent filtering, and how many reached FDR < 0.1 before the fold-change cut. Those are four different quantities and had been quoted inconsistently |
+| 5B–C | Between-strain tests are Welch's t-tests, not the equal-variance default. This changes the P1 lineage comparison from 0.65 to 0.67 |
+| 6 | Rebuilt as the four-panel figure, drawn from `source_data/` instead of recomputed from raw intermediates |
+| 7C | MYC targets and ribosome biogenesis are omitted; the five retained programme medians are unchanged |
 
 ## Important: paths are not rewritten
 
