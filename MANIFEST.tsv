@@ -31,7 +31,7 @@ analysis	FINAL allele-dosage concordance	rerun4/concordance/rank_concordance_v3.
 analysis	motifbreakR (allele-wise input)	rerun2/D2/scripts/run_motifbreakr_v3_assert.R	analysis/run_motifbreakr_v3_assert.R	rerun3/F7/motifbreakr/	b2dc52da036b9faca62ab661bf2a4298	True	3338
 analysis	Kidney gene-set enrichment (106 sets)	rerun2/G/scripts/run_fgsea_samplesize.R	analysis/run_fgsea_samplesize.R	rerun3/S2/out/fgsea_106sets_s2p/	21c35b88984af4929c4f30947ed84caa	True	3139
 analysis	Unrestricted gene-set enrichment	rerun3/GSEA/scripts/run_gsea_unrestricted.R	analysis/run_gsea_unrestricted.R	rerun3/GSEA/out_s2p/	53793c7db3aa9287c308d778697087f3	True	3850
-analysis	Pre-specified interferon sets by stage	rerun6/isg_prespecified.R	analysis/isg_prespecified.R	rerun6/isg_prespecified.tsv	d349faa9cc294af5aa4c8c4646bd68a9	True	1607
+analysis	Predefined interferon sets by stage	rerun6/isg_prespecified.R	analysis/isg_predefined.R	rerun6/isg_prespecified.tsv	23a20570553f7047e96f532a66e8fd9e	False	1604
 analysis	Liver replication (GSE167328)	rerun3/ISG_liver/run_liver_isg.R	analysis/run_liver_isg.R	rerun3/ISG_liver/out/	f22db7668a68a12110b0deb507be62f4	True	3252
 analysis	Cell-composition deconvolution	rerun2/A/scripts/run_deconvolution_v2_param.R	analysis/run_deconvolution_v2_param.R	rerun3/S2/out/deconv_s2p/	540dfaab5ef555c3f7d48638d932ab81	True	7746
 analysis	Phenotype statistics (ANOVA, Tukey)	analyze_phenotype.py	analysis/analyze_phenotype.py	console output, Table 1 inputs	e712f8a17fa88bc23c1ab236d9f1c550	True	4302
@@ -45,12 +45,12 @@ figures	Figure 3C-F (bias correction)	rerun2/G/scripts/plot_figure3_CF.py	figure
 figures	Figure 4 (DE, GDNF-RET, GSEA)	rerun2/G/scripts/plot_figure4.py	figures/plot_figure4.py	rerun3/figures/Figure4.*	a5d3b7977368ac780c5c6563e4a16e1c	True	4707
 figures	Figure 5 (deconvolution)	rerun3/F5/plot_figure5.py	figures/plot_figure5.py	rerun3/figures/Figure5.*	103df86fb29748612591785231a425b4	True	3859
 figures	Figure 6 (prioritisation caveats)	rerun3/F7/plot_figure7_v2.py	figures/plot_figure6.py	rerun3/figures/F7/	dde4b43e834845efa2042a011c660010	True	6802
-figures	Figure 7 (unrestricted GSEA; panel B uses pre-specified Hallmark sets)	rerun7/fig7/plot_figure7_v2.py	figures/plot_figure7.py	rerun7/fig7/Figure7.*	05e66e01a36f5bc4951785a82cc19bbf	True	9740
+figures	Figure 7 (unrestricted GSEA; panel B uses predefined Hallmark sets)	rerun7/fig7/plot_figure7_v2.py	figures/plot_figure7.py	rerun7/fig7/Figure7.*	85f16654445096131769b1d396c7626b	False	9734
 figures	Forward vs reverse scatter	rerun4/reverse_control/plot_forward_vs_reverse.py	figures/plot_forward_vs_reverse.py	rerun4/reverse_control/forward_vs_reverse.*	f22ade313b5dd6ad93b17771b246a98f	True	2188
 g2gtools_patch	Reverse BAM conversion, identity mapping	rerun2/A/patch_v2/g2g_bam_convert_v2.py	g2gtools_patch/g2g_bam_convert_v2.py	results/phase2/g2g/reverted/	41d3ad23accfb5ca465a03b27e4005de	True	2144
 g2gtools_patch	Patched bsam module	rerun2/A/patch_v2/bsam_fixed.py	g2gtools_patch/bsam_fixed.py	(imported by the wrapper)	9602d31e795d9318760f098d43f7ae9f	True	41765
 figures	Tukey HSD implementation (no statsmodels)	rerun7/fig1/tukey.py	figures/tukey.py	imported by plot_figure1.py	4ddc4e1d0943d6dec0617bb7c0a81ec9	True	915
 figures	Equivalence testing (TOST) helper	rerun2/B2/scripts/tost_options.py	figures/tost_options.py	imported by plot_figure1.py	09aebffa7df28e6f4f09874720834848	True	2774
-analysis	Figure 7B data, pre-specified Hallmark interferon sets	rerun7/fig7/make_panelB_data.R	analysis/make_figure7B_data.R	rerun7/fig7/panelB_hallmark_interferon.tsv	85df737df942b09d7f996079e6630de8	True	1455
+analysis	Figure 7B data, predefined Hallmark interferon sets	rerun7/fig7/make_panelB_data.R	analysis/make_figure7B_data.R	rerun7/fig7/panelB_hallmark_interferon.tsv	fbd892089aa169880d408cd251d5ee4c	False	1452
 analysis	Kidney-axis and CAKUT gene lists	assign_tiers_v3_ckd_genes.py	analysis/assign_tiers_v3_ckd_genes.py	gene-list membership checks	7daa2473789d8071a7f36ddcf9d7833b	True	4540
 source_data	Figure 7B summary (gene count, median log2FC, FDR<0.1 fraction per set and stage)	rerun7/fig7/panelB_summary.tsv	source_data/Figure7B_summary.tsv	(plotted as the annotations on Figure 7B)	68d7f172a1f515cd56f923ada1ae11b7	True	329

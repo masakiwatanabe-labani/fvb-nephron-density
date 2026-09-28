@@ -1,4 +1,4 @@
-## Per-gene log2 fold changes of the two pre-specified MSigDB Hallmark interferon sets,
+## Per-gene log2 fold changes of the two predefined MSigDB Hallmark interferon sets,
 ## at E13.5 and P1. Replaces the 18-gene panel, which was assembled from the P1 leading edge.
 suppressPackageStartupMessages({library(msigdbr); library(data.table)})
 a <- commandArgs(TRUE); g <- function(k,d=NULL){i<-which(a==paste0("--",k)); if(length(i)) a[i+1] else d}

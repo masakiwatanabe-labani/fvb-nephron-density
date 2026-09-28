@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the paper it accompanies."
 title: >-
-  Nephron endowment relative to renal mass distinguishes FVB/N from three other
-  inbred mouse strains: phenotypic characterisation and bias-corrected
-  developmental transcriptome analysis
+  Recovered glomerular counts relative to renal mass distinguish FVB/N from
+  three other inbred mouse strains: phenotypic characterisation and
+  bias-corrected developmental transcriptome analysis
 abstract: >-
   Analysis code for the revised manuscript. Covers read trimming, alignment to
   FVB/N personalised genomes, quantification, differential expression,
@@ -41,7 +41,7 @@ authors:
       Laboratory of Laboratory Animal Science and Medicine, School of Veterinary
       Medicine, Kitasato University
 keywords:
-  - nephron endowment
+  - recovered glomerular counts
   - glomerular density
   - FVB/N
   - reference genome bias

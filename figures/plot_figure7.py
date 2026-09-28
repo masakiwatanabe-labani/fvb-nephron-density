@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """New Figure 7: unrestricted gene-set analysis of the developing-kidney transcriptome.
 
-v2 (2026-09-26): panel B now shows the two pre-specified MSigDB Hallmark interferon sets in full,
+v2 (2026-09-26): panel B now shows the two predefined MSigDB Hallmark interferon sets in full,
 at both stages. The previous panel used 18 genes taken from the leading edge of the P1 result, which
 made it post-hoc; those 18 genes are no longer shown in the main figure.
 
@@ -58,7 +58,7 @@ ax.set_ylabel("$-\\log_{10}$ adjusted $P$", fontsize=11)
 ax.set_title(f"A  Without a kidney name filter,\n{len(g):,} sets tested at P1", fontsize=12.6, weight="bold")
 ax.legend(fontsize=8.6, frameon=False, loc="center right", borderaxespad=.4)
 
-# ---------------- B: pre-specified Hallmark interferon sets, E13.5 vs P1 ----------------
+# ---------------- B: predefined Hallmark interferon sets, E13.5 vs P1 ----------------
 ax = axes[1]; style(ax)
 b = pd.read_csv(a.panelb, sep="\t")
 SETLAB = {"HALLMARK_INTERFERON_GAMMA_RESPONSE": "interferon\u2011\u03b3\nresponse",

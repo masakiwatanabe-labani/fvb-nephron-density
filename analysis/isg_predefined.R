@@ -1,4 +1,4 @@
-## E13.5 vs P1 comparison of the interferon response using PRE-SPECIFIED MSigDB gene sets.
+## E13.5 vs P1 comparison of the interferon response using PREDEFINED MSigDB gene sets.
 ## The 18-gene panel used for Figure 7B was assembled from the leading edge of the P1 result and is
 ## therefore post-hoc. Here the comparison is repeated on HALLMARK_INTERFERON_GAMMA_RESPONSE and
 ## HALLMARK_INTERFERON_ALPHA_RESPONSE taken whole, which are defined independently of these data.

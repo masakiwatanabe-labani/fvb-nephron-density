@@ -2,8 +2,9 @@
 
 Analysis code for
 
-> **Nephron endowment relative to renal mass distinguishes FVB/N from three other inbred mouse
-> strains: phenotypic characterisation and bias-corrected developmental transcriptome analysis**
+> **Recovered glomerular counts relative to renal mass distinguish FVB/N from three other inbred
+> mouse strains: phenotypic characterisation and bias-corrected developmental transcriptome
+> analysis**
 > (revised manuscript, *International Journal of Molecular Sciences*)
 
 This repository holds the scripts that produced the figures, tables and numbers reported in the
@@ -18,7 +19,7 @@ revised manuscript. It does not hold raw or intermediate data.
 | `pipeline/` | Trimming, library-type inference, alignment, personalised-genome construction, quantification, differential expression |
 | `g2gtools_patch/` | The patched g2gtools module and the wrapper used for reverse BAM conversion, with a minimal reproducible example |
 | `analysis/` | Mapping-bias QC, variant extraction and annotation, candidate prioritisation, allele-dosage concordance, gene-set enrichment, deconvolution, the liver replication, table builders |
-| `figures/` | One script per figure. Figure 1 marks significance with Tukey HSD across all four strains, matching the P values quoted in the text; Figure 7B shows the two pre-specified MSigDB Hallmark interferon sets in full rather than a post-hoc selection of genes |
+| `figures/` | One script per figure. Figure 1 marks significance with Tukey HSD across all four strains, matching the P values quoted in the text; Figure 7B shows the two predefined MSigDB Hallmark interferon sets in full rather than a post-hoc selection of genes |
 | `source_data/` | The aggregated tables actually plotted, one per figure or table panel |
 | `environment/` | Conda environment exports, R `sessionInfo()` per analysis, tool versions, reference-data provenance |
 | `MANIFEST.tsv` | Figure or table → script → output, with the path of each script in the original analysis directory and its md5 |
@@ -34,9 +35,14 @@ revised manuscript. It does not hold raw or intermediate data.
 | `source_path_in_analysis_dir` | where the file sits in the original analysis directory |
 | `repo_path` | where it sits here |
 | `outputs` | the files it writes |
-| `md5` | md5 of the file, identical in both places |
+| `md5` | md5 of the file as it stands here |
+| `md5_matches_source` | whether that md5 equals the md5 of the file in the original analysis directory |
 
-Every file was copied byte-for-byte; the md5 column was verified against the original after copying.
+Every file was copied byte-for-byte and the md5 column was verified against the original after
+copying. Three files were subsequently edited here for wording only — `analysis/isg_predefined.R`,
+`analysis/make_figure7B_data.R` and `figures/plot_figure7.py`, where a comment said
+"pre-specified" instead of "predefined". Their `md5_matches_source` is `False`; no executable
+line was changed, so they still reproduce the same output as the files that were run.
 
 ## Important: paths are not rewritten
 
@@ -57,8 +63,10 @@ analysis root. Running them elsewhere means supplying the same inputs, not editi
 | Single-cell reference for deconvolution | GEO GSE94333 |
 | Liver replication dataset | GEO GSE167328 |
 
-`environment/reference_data.tsv` is the same provenance table as Supplementary Table S1: every
-reference file with its exact name, source URL, download date and md5.
+`environment/reference_data.tsv` holds the provenance of every reference file used here: its
+exact name, source URL, download date and md5. For the full analysis settings and the complete
+reference-data table, see Supplementary Table S1 of the paper; no draft of that table is kept in
+this repository.
 
 ## Order of execution
 
