@@ -87,6 +87,53 @@ exact name, source URL, download date and md5. For the full analysis settings an
 reference-data table, see Supplementary Table S1 of the paper; no draft of that table is kept in
 this repository.
 
+## The D11 exclusion in the unrestricted gene-set analysis
+
+The hybrid count matrix takes C57BL/6J from GRCm39 and FVB/N from the personalised genome. A gene
+whose C57BL/6J count moves when **only the genome changes** can therefore look differentially
+expressed for a purely technical reason. `pipeline/reverse_control_param.py` screens for these:
+
+    reverse_control_param.py --uncorrected M --arm M --gene-chr F --out-prefix P \
+                             [--min-reads 60] [--threshold 1.0]
+
+A gene is flagged when its two arms carry **at least 60 C57BL/6J reads in total** and its
+**|log2 shift| exceeds 1** (a more than two-fold change from the genome swap alone). The screen the
+manuscript used is published here:
+
+| File | Genes flagged |
+|---|---|
+| `source_data/d11_screen_condB_E13.5.tsv` | 150 |
+| `source_data/d11_screen_condB_P1.tsv` | 139 |
+| `source_data/d11_excluded_genes_union.tsv` | 164 (the union, with gene symbols and per-stage flags) |
+
+**The unrestricted gene-set analysis is the only analysis that uses them.** `analysis/run_gsea_unrestricted.R`
+takes the directory holding the two screen files as `--d11-dir`, forms the **union** of their `Geneid`
+columns, and removes that union from **both** stages before ranking — so the 14 genes flagged only at
+P1 are dropped from E13.5 as well. The removal happens before genes with a missing Wald statistic or
+symbol are dropped and before one gene per symbol is kept.
+
+    Rscript analysis/run_gsea_unrestricted.R \
+      --deseq-dir <DESeq2 output> --id2name <gene_id2name.tsv> \
+      --d11-dir source_data --outdir <out>
+
+(The file-name pattern the script matches is `screen_condB_{E13.5,P1}.tsv`, so pass a directory that
+holds the two files under those names; the copies here carry a `d11_` prefix to keep `source_data/`
+readable.)
+
+What this removes from the ranking:
+
+| | genes in the DESeq2 table | removed by D11 | dropped as a duplicate symbol | ranked |
+|---|---:|---:|---:|---:|
+| E13.5 | 24,283 | 120 | 20 | 24,143 |
+| P1 | 26,718 | 118 | 19 | 26,581 |
+
+Without the exclusion, 5,279 and 5,339 sets are tested and P1 has 92 sets at FDR < 0.05 instead of
+104. The six programmes reported in the text stay significant either way and their NES moves by at
+most 0.03; what the exclusion changes is the size of the interferon signal, not its direction.
+
+**No other analysis applies it** — the kidney-restricted gene-set analysis (106 sets), DESeq2, the
+deconvolution and the candidate funnel all run on the full gene list.
+
 ## Order of execution
 
 1. `pipeline/run_fastp*.sh` — trimming
