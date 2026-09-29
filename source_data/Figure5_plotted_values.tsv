@@ -36,4 +36,8 @@ C	P1 FVB Loop_of_Henle	0.0216
 C	P1 FVB Endothelial	0.1
 C	P1 NPC lineage B6	0.1745
 C	P1 NPC lineage FVB	0.1864
-C	P1 NPC lineage p	0.6473
+C	P1 NPC lineage p	0.6651
+B	E13.5 minimum cell-type Welch P (Ureteric_Bud)	0.0187
+B	E13.5 Bonferroni-adjusted minimum P (9 tests)	0.1685
+C	P1 minimum cell-type Welch P (Ureteric_Bud)	0.0556
+C	P1 Bonferroni-adjusted minimum P (9 tests)	0.5008
