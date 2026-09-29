@@ -38,7 +38,7 @@ for i, tp in enumerate(["E13.5", "P1"]):
     ax.bar(x + (i - 0.5) * w, v, w, label=tp, color=COL[tp], alpha=.85)
 ax.set_xticks(x); ax.set_xticklabels(["Uncorrected", "Cond. A\n(SNP only)", "Cond. B\n(SNP+indel)"], fontsize=12.9)
 ax.set_ylabel("Mean |log2FC|", fontsize=14.5); ax.set_ylim(1.5, 2.1)
-ax.set_title(f"{L[0]}  Convergence in high-bias genes", fontsize=16.1, weight="bold")
+ax.set_title(f"{L[0]}  Genes with large uncorrected strain differences", fontsize=16.1, weight="bold")
 ax.legend(fontsize=12.9, frameon=False); style(ax)
 ax.text(.5, .03, f"E13.5 n={int(m('high_bias_n','E13.5'))}, P1 n={int(m('high_bias_n','P1'))} genes (|uncorrected log2FC|>1)",
         transform=ax.transAxes, ha="center", fontsize=10.9, color="#555")
